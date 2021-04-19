@@ -1,0 +1,4 @@
+include ':handbook'
+include ':threads'
+include ':app'
+rootProject.name = "NewLessons"
