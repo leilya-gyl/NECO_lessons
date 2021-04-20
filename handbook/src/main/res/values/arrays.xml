@@ -22,7 +22,7 @@
     <string-array name="history_array" tools:ignore="ExtraTranslation">
         <item>Рыбак и море</item>
         <item>Рыбак и щука</item>
-        <item>На дому</item>
+        <item>На Дону</item>
         <item>Случай на рыбалке</item>
     </string-array>
     <string-array name="advice_array" tools:ignore="ExtraTranslation">

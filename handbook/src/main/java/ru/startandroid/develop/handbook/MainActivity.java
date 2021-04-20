@@ -1,9 +1,11 @@
 package ru.startandroid.develop.handbook;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -30,7 +32,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private ListView list;
     private String[] array;
     private ArrayAdapter<String> adapter;
+    private Toolbar toolbar;
     private AppBarConfiguration mAppBarConfiguration;
+    private int category_index;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<String>(Arrays.asList(array)));
         list.setAdapter(adapter);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -51,6 +55,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(MainActivity.this, TextContentActivity.class);
+                intent.putExtra("category", category_index);
+                intent.putExtra("position", position);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -68,6 +82,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        toolbar.setTitle(R.string.fish);
         return true;
     }
 
@@ -76,34 +91,44 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
         switch (id){
             case R.id.fish:
+                toolbar.setTitle(R.string.fish);
                 array = getResources().getStringArray(R.array.fish_array);
                 adapter.clear();
                 adapter.addAll(array);
                 adapter.notifyDataSetChanged();
+                category_index = 0;
                 break;
             case R.id.corm:
+                toolbar.setTitle(R.string.corm);
                 array = getResources().getStringArray(R.array.corm_array);
                 adapter.clear();
                 adapter.addAll(array);
                 adapter.notifyDataSetChanged();
+                category_index = 1;
                 break;
             case R.id.tools:
+                toolbar.setTitle(R.string.tools);
                 array = getResources().getStringArray(R.array.sna_array);
                 adapter.clear();
                 adapter.addAll(array);
                 adapter.notifyDataSetChanged();
+                category_index = 2;
                 break;
             case R.id.fisher_story:
+                toolbar.setTitle(R.string.story);
                 array = getResources().getStringArray(R.array.history_array);
                 adapter.clear();
                 adapter.addAll(array);
                 adapter.notifyDataSetChanged();
+                category_index = 3;
                 break;
             case R.id.advice:
+                toolbar.setTitle(R.string.advice);
                 array = getResources().getStringArray(R.array.advice_array);
                 adapter.clear();
                 adapter.addAll(array);
                 adapter.notifyDataSetChanged();
+                category_index = 4;
                 break;
         }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

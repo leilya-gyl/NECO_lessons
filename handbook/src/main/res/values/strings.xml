@@ -12,4 +12,25 @@
     <string name="tools">Снасти</string>
     <string name="advice">Полезные советы</string>
     <string name="story">Рыбацкие истории</string>
+    <string name="fish1"> Карп</string>
+    <string name="fish2"> Щука</string>
+    <string name="fish3"> Сом</string>
+    <string name="fish4"> Осетр</string>
+    <string name="fish5"> Налим</string>
+    <string name="corm1"> Корм 1</string>
+    <string name="corm2"> Корм 2</string>
+    <string name="corm3"> Корм 3</string>
+    <string name="corm4"> Корм 4</string>
+    <string name="tool1"> Снасть 1</string>
+    <string name="tool2"> Снасть 2</string>
+    <string name="tool3"> Снасть 3</string>
+    <string name="tool4"> Снасть 4</string>
+    <string name="story1"> История 1</string>
+    <string name="story2"> История 2</string>
+    <string name="story3"> История 3</string>
+    <string name="story4"> История 4</string>
+    <string name="advice1"> Совет 1</string>
+    <string name="advice2"> Совет 2</string>
+    <string name="advice3"> Совет 3</string>
+    <string name="advice4"> Совет 4</string>
 </resources>
